@@ -34,6 +34,7 @@ export function apiGatewayProxyWrapper(bodyHandler) {
 		try {
 			const userInput = JSON.parse(event.body);
 			console.log(JSON.stringify({userInput}, null, 4));
+			console.log(bodyHandler);
 			bodyHandler(userInput).then((result) => done(null, result)).catch(done);
 		} catch (error) {
 			return done({code: 'InvalidRequest', message: 'Parse error.'});
