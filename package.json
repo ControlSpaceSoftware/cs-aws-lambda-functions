@@ -1,34 +1,26 @@
 {
-	"name": "cs-aws-lambda-functions",
-	"version": "0.0.6",
-	"private": true,
-	"description": "aws lambda function utilities",
-	"main": "lib/index.js",
-	"scripts": {
-		"prepare": "babel src --out-dir lib",
-		"test": "mocha test"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ControlSpaceSoftware/cs-lambda.git"
-	},
-	"keywords": [
-		"aws",
-		"lambda"
-	],
-	"author": "javadoug",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/ControlSpaceSoftware/cs-lambda/issues"
-	},
-	"homepage": "https://github.com/ControlSpaceSoftware/cs-lambda#readme",
-	"devDependencies": {
-		"babel-cli": "^6.26.0",
-		"babel-preset-env": "^1.6.0"
-	},
-	"babel": {
-		"presets": [
-			"env"
-		]
-	}
+  "name": "cs-aws-lambda-functions",
+  "version": "0.0.6",
+  "private": true,
+  "description": "aws lambda function utilities",
+  "main": "lib/index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ControlSpaceSoftware/cs-lambda.git"
+  },
+  "keywords": [
+    "aws",
+    "lambda"
+  ],
+  "author": "javadoug",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ControlSpaceSoftware/cs-lambda/issues"
+  },
+  "homepage": "https://github.com/ControlSpaceSoftware/cs-lambda#readme",
+  "devDependencies": {
+    "build-scripts": "github:controlspacesoftware/build-scripts"
+  }
 }
