@@ -2,8 +2,9 @@
 	"name": "cs-aws-lambda-functions",
 	"version": "0.0.1",
 	"description": "aws lambda function utilities",
-	"main": "index.js",
+	"main": "lib/index.js",
 	"scripts": {
+		"prepare": "babel src --out-dir lib",
 		"test": "mocha test"
 	},
 	"repository": {
@@ -19,5 +20,14 @@
 	"bugs": {
 		"url": "https://github.com/ControlSpaceSoftware/cs-lambda/issues"
 	},
-	"homepage": "https://github.com/ControlSpaceSoftware/cs-lambda#readme"
+	"homepage": "https://github.com/ControlSpaceSoftware/cs-lambda#readme",
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.6.0"
+	},
+	"babel": {
+		"presets": [
+			"env"
+		]
+	}
 }

@@ -1,5 +1,5 @@
 
-export function apiGatewayProxyWrapper(bodyHandler) {
+export default function apiGatewayProxyWrapper(bodyHandler) {
 
 	return (event, context, callback) => {
 
