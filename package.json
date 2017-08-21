@@ -1,36 +1,43 @@
 {
-  "name": "cs-aws-lambda-functions",
-  "version": "0.0.6",
-  "private": true,
-  "description": "aws lambda function utilities",
-  "main": "lib/index.js",
-  "scripts": {
-	  "clean": "./node_modules/build-scripts/index.js clean",
-	  "zip": "./node_modules/build-scripts/index.js zip",
-	  "build-lambda": "./node_modules/build-scripts/index.js build-lambda",
-	  "upload-lambda": "./node_modules/build-scripts/index.js upload-lambda",
-	  "build": "./node_modules/build-scripts/index.js build",
-	  "test": "./node_modules/build-scripts/index.js test",
-	  "test-watch": "./node_modules/build-scripts/index.js test-watch",
-	  "commit": "./node_modules/build-scripts/index.js commit",
-	  "patch": "./node_modules/build-scripts/index.js patch",
-	  "push": "./node_modules/build-scripts/index.js push"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ControlSpaceSoftware/cs-lambda.git"
-  },
-  "keywords": [
-    "aws",
-    "lambda"
-  ],
-  "author": "javadoug",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ControlSpaceSoftware/cs-lambda/issues"
-  },
-  "homepage": "https://github.com/ControlSpaceSoftware/cs-lambda#readme",
-  "devDependencies": {
-    "build-scripts": "github:controlspacesoftware/build-scripts"
-  }
+	"name": "cs-aws-lambda-functions",
+	"version": "0.0.6",
+	"private": true,
+	"description": "aws lambda function utilities",
+	"main": "lib/index.js",
+	"scripts": {
+		"help": "build-scripts -h",
+		"build": "build-scripts build",
+		"test": "build-scripts test",
+		"test-watch": "build-scripts test-watch",
+		"commit": "build-scripts commit",
+		"patch": "build-scripts patch",
+		"push": "build-scripts push",
+		"patch-push": "build-scripts patch-push",
+		"clean": "build-scripts clean",
+		"zip": "build-scripts zip",
+		"build-lambda": "build-scripts build-lambda",
+		"upload-lambda": "build-scripts upload-lambda"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ControlSpaceSoftware/cs-aws-lambda-functions.git"
+	},
+	"keywords": [
+		"aws",
+		"lambda"
+	],
+	"author": "javadoug",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ControlSpaceSoftware/cs-aws-lambda-functions/issues"
+	},
+	"homepage": "https://github.com/ControlSpaceSoftware/cs-aws-lambda-functions#readme",
+	"devDependencies": {
+		"build-scripts": "github:ControlSpaceSoftware/build-scripts.git"
+	},
+	"babel": {
+		"presets": [
+			"env"
+		]
+	}
 }
