@@ -33,7 +33,7 @@
 	},
 	"homepage": "https://github.com/ControlSpaceSoftware/cs-aws-lambda-functions#readme",
 	"devDependencies": {
-		"build-scripts": "github:ControlSpaceSoftware/build-scripts.git"
+		"build-scripts": "github:ControlSpaceSoftware/build-scripts"
 	},
 	"babel": {
 		"presets": [
