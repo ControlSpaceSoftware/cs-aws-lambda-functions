@@ -13,6 +13,9 @@ export default function apiGatewayProxyWrapper(bodyHandler) {
 				if (typeof error === 'object') {
 					const params = parseEventParams(event);
 					error.requestId = params.requestParams.requestId;
+					if (params.requestParams.stage === 'prod') {
+						delete error.error;
+					}
 				}
 				console.log(JSON.stringify({event, context, error}, null, 4));
 				response = error;
