@@ -1,5 +1,6 @@
 import path from 'ov-object-path'
 import parseEventBody from './parseEventBody'
+import parseEventParams from './parseEventParams'
 export default function apiGatewayProxyWrapper(bodyHandler) {
 
 	return (event, context, callback) => {
@@ -9,6 +10,10 @@ export default function apiGatewayProxyWrapper(bodyHandler) {
 			const statusCode = error ? '400' : '200';
 
 			if (error) {
+				if (typeof error === 'object') {
+					const params = parseEventParams(event);
+					error.requestId = params.requestParams.requestId;
+				}
 				console.log(JSON.stringify({event, context, error}, null, 4));
 				response = error;
 			}

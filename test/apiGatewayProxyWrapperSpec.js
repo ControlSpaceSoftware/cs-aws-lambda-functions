@@ -30,20 +30,20 @@ describe('apiGatewayProxyWrapper', () => {
 			test: 'test context'
 		};
 	});
-	xit('exits', () => {
+	it('exits', () => {
 		expect(apiGatewayProxyWrapper).to.be.a('function');
 	});
-	xit('returns function when required params give', () => {
+	it('returns function when required params give', () => {
 		expect(apiGatewayProxyWrapper.bind(null, bodyHandler)).to.be.a('function');
 	});
-	xit('calls bodyHandler(userInput, event, context) with event.body correctly', () => {
+	it('calls bodyHandler(userInput, event, context) with event.body correctly', () => {
 		const bodyHandler = sinon.spy();
 		const wrapper = apiGatewayProxyWrapper(bodyHandler);
 		wrapper(event, context, () => {
 		});
 		expect(bodyHandler).to.have.been.calledWith(userInput, event, context);
 	});
-	xit('bodyHandler(userInput, event, context) calls callback(error, response) correctly on success', () => {
+	it('bodyHandler(userInput, event, context) calls callback(error, response) correctly on success', () => {
 		bodyHandler = () => {
 			return new Promise((resolve) => {
 				resolve({test: 'test resolve'});
@@ -68,7 +68,7 @@ describe('apiGatewayProxyWrapper', () => {
 		};
 		const expected = {
 			statusCode: '400',
-			body: '{"test":"test reject"}',
+			body: '{"test":"test reject","requestId":"test request id"}',
 			headers: {'Content-Type': 'application/json'}
 		};
 		const wrapper = apiGatewayProxyWrapper(bodyHandler);
