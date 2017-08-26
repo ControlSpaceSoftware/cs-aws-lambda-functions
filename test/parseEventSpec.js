@@ -27,6 +27,16 @@ describe('parseEvent', () => {
 			"pathParams": {},
 			"stageParams": {},
 			"queryParams": {"s": "foo"},
+			"requestParams": {
+				"accountId": "test",
+				"apiId": "test",
+				"httpMethod": "GET",
+				"path": "/dev/search",
+				"requestId": "4d75990d-89f3-11e7-98b2-61f25e17ca2a",
+				"resourceId": "test",
+				"resourcePath": "/search",
+				"stage": "dev"
+			},
 			"userInfo": {
 				"sub": "b0e7da81-3271-46dc-b8b0-7d62cef3ab31",
 				"aud": "test",
@@ -44,7 +54,14 @@ describe('parseEvent', () => {
 	it('ignores non string values', () => {
 		const event = {};
 		const result = parseEvent(event);
-		expect(result).to.eql({"pathParams": {}, "stageParams": {}, "queryParams": {}, "userInfo": {}, body: undefined});
+		expect(result).to.eql({
+			"pathParams": {},
+			"stageParams": {},
+			"queryParams": {},
+			"userInfo": {},
+			body: undefined,
+			requestParams: {}
+		});
 	});
 });
 
@@ -89,7 +106,8 @@ describe('parseEventParams', () => {
 		expect(parseEventParams(event)).to.eql({
 			pathParams: {test: 'test path parameters'},
 			stageParams: {test: 'test stage variables'},
-			queryParams: {test: 'test query string parameters'}
+			queryParams: {test: 'test query string parameters'},
+			requestParams: {}
 		});
 	});
 	it('ignores non string values', () => {
@@ -97,7 +115,8 @@ describe('parseEventParams', () => {
 		expect(parseEventParams(event)).to.eql({
 			pathParams: {},
 			stageParams: {},
-			queryParams: {}
+			queryParams: {},
+			requestParams: {}
 		});
 	});
 });
