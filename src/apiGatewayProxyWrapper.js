@@ -25,7 +25,8 @@ export default function apiGatewayProxyWrapper(bodyHandler) {
 				statusCode,
 				body: JSON.stringify(response),
 				headers: {
-					'Content-Type': 'application/json'
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': '*'
 				}
 			};
 

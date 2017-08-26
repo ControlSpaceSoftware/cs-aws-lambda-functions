@@ -52,7 +52,7 @@ describe('apiGatewayProxyWrapper', () => {
 		const expected = {
 			statusCode: '200',
 			body: '{"test":"test resolve"}',
-			headers: {'Content-Type': 'application/json'}
+			headers: {"Access-Control-Allow-Origin": "*", 'Content-Type': 'application/json'}
 		};
 		const wrapper = apiGatewayProxyWrapper(bodyHandler);
 		const callback = sinon.spy();
@@ -69,7 +69,7 @@ describe('apiGatewayProxyWrapper', () => {
 		const expected = {
 			statusCode: '400',
 			body: '{"test":"test reject","requestId":"test request id"}',
-			headers: {'Content-Type': 'application/json'}
+			headers: {"Access-Control-Allow-Origin": "*", 'Content-Type': 'application/json'}
 		};
 		const wrapper = apiGatewayProxyWrapper(bodyHandler);
 		const callback = sinon.spy();
