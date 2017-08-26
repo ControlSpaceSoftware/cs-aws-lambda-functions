@@ -39,8 +39,5 @@
 		"presets": [
 			"env"
 		]
-	},
-	"dependencies": {
-		"ov-object-path": "^1.2.0"
 	}
 }

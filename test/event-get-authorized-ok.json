@@ -1,0 +1,52 @@
+{
+	"resource": "/search",
+	"path": "/search",
+	"httpMethod": "GET",
+	"headers": {
+	},
+	"queryStringParameters": {
+		"s": "foo"
+	},
+	"pathParameters": null,
+	"stageVariables": null,
+	"requestContext": {
+		"path": "/dev/search",
+		"accountId": "test",
+		"resourceId": "test",
+		"stage": "dev",
+		"authorizer": {
+			"claims": {
+				"sub": "b0e7da81-3271-46dc-b8b0-7d62cef3ab31",
+				"aud": "test",
+				"email_verified": "true",
+				"token_use": "id",
+				"auth_time": "1503706034",
+				"iss": "https://cognito-idp.us-east-1.amazonaws.com/us-east-test",
+				"cognito:username": "test+username.com",
+				"exp": "Sat Aug 26 01:07:14 UTC 2017",
+				"iat": "Sat Aug 26 00:07:14 UTC 2017",
+				"email": "test@username.com"
+			}
+		},
+		"requestId": "4d75990d-89f3-11e7-98b2-61f25e17ca2a",
+		"identity": {
+			"cognitoIdentityPoolId": null,
+			"accountId": null,
+			"cognitoIdentityId": null,
+			"caller": null,
+			"apiKey": "",
+			"sourceIp": "73.218.234.110",
+			"accessKey": null,
+			"cognitoAuthenticationType": null,
+			"cognitoAuthenticationProvider": null,
+			"userArn": null,
+			"userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36",
+			"user": null
+		},
+		"resourcePath": "/search",
+		"httpMethod": "GET",
+		"apiId": "test"
+	},
+	"body": null,
+	"isBase64Encoded": false
+}
