@@ -10,14 +10,16 @@ export default function apiGatewayProxyWrapper(bodyHandler) {
 			const statusCode = error ? '400' : '200';
 
 			if (error) {
+				// log the full error before trimming for user output
+				console.log(JSON.stringify({event, context, error}, null, 4));
 				if (typeof error === 'object') {
 					const params = parseEventParams(event);
 					error.requestId = params.requestParams.requestId;
 					if (params.requestParams.stage === 'prod') {
+						// do not publish error info to prod users
 						delete error.error;
 					}
 				}
-				console.log(JSON.stringify({event, context, error}, null, 4));
 				response = error;
 			}
 
