@@ -58,7 +58,7 @@ describe('parseEvent', () => {
 			"pathParams": {},
 			"stageParams": {},
 			"queryParams": {},
-			"userInfo": {},
+			"userInfo": undefined,
 			body: undefined,
 			requestParams: {}
 		});
@@ -86,7 +86,7 @@ describe('parseEventUserInfo', () => {
 	});
 	it('ignores non string values', () => {
 		const event = {};
-		expect(parseEventUserInfo(event)).to.eql({userInfo: {}});
+		expect(parseEventUserInfo(event)).to.eql({userInfo: undefined});
 	});
 });
 
