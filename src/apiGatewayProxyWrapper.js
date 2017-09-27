@@ -1,6 +1,13 @@
 import path from 'ov-object-path'
 import parseEventBody from './parseEventBody'
 import parseEventParams from './parseEventParams'
+
+/**
+ * @deprecated use {apiGatewayProxyHandlerFactory.js}
+ *
+ * @param bodyHandler
+ * @returns {function(*=, *=, *)}
+ */
 export default function apiGatewayProxyWrapper(bodyHandler) {
 
 	return (event, context, callback) => {
