@@ -37,7 +37,7 @@ describe('apiGatewayProxyWrapper', () => {
 		expect(apiGatewayProxyWrapper.bind(null, bodyHandler)).to.be.a('function');
 	});
 	it('calls bodyHandler(userInput, event, context) with event.body correctly', () => {
-		const bodyHandler = sinon.spy();
+		const bodyHandler = sinon.stub().returns(Promise.resolve());
 		const wrapper = apiGatewayProxyWrapper(bodyHandler);
 		wrapper(event, context, () => {
 		});
@@ -55,7 +55,7 @@ describe('apiGatewayProxyWrapper', () => {
 			headers: {"Access-Control-Allow-Origin": "*", 'Content-Type': 'application/json'}
 		};
 		const wrapper = apiGatewayProxyWrapper(bodyHandler);
-		const callback = sinon.spy();
+		const callback = sinon.stub().returns(Promise.resolve());
 		return wrapper(event, context, callback).then(() => {
 			expect(callback).to.have.been.calledWith(null, expected);
 		});

@@ -37,7 +37,7 @@ describe('apiGatewayProxyHandlerFactory', () => {
 		expect(apiGatewayProxyHandlerFactory.bind(null, {eventHandler})).to.be.a('function');
 	});
 	it('calls eventHandler(event, context) with event and context', () => {
-		const eventHandler = sinon.spy();
+		const eventHandler = sinon.stub().returns(Promise.resolve());
 		const proxyHandler = apiGatewayProxyHandlerFactory({eventHandler});
 		proxyHandler(event, context, () => {});
 		expect(eventHandler).to.have.been.calledWith(event, context);
