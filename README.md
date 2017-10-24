@@ -38,3 +38,19 @@ If event.body JSON.parse error, returns statusCode 400 with json message:
 {code: 'InvalidRequest', message: 'Parse error.'}
 ```
 
+## getS3Object({provider, bucket, key})
+
+## Install
+npm install github:ControlSpaceSoftware/cs-aws-lambda-functions.git --save
+
+## Usage
+```
+// index.js:
+import { getS3Object } from 'cs-aws-lambda-functions'
+
+getS3Object({provider: AWS.S3, bucket: 'mybucket', key: 'mykey'}).then(...).catch(...);
+
+```
+
+### Errors
+Throws error if provider does not support getObject method, bucket is missing or key is missing.
