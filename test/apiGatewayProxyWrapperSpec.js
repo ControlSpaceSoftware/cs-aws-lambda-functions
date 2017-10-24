@@ -4,7 +4,7 @@ import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
-import {apiGatewayProxyWrapper} from '../src'
+import {apiGatewayProxyWrapper} from '../src/index'
 
 chai.should();
 chai.use(sinonChai);

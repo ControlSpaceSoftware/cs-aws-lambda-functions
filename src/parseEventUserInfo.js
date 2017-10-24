@@ -1,6 +1,6 @@
 import path from 'ov-object-path'
 
-export default function parseEvent(event) {
+export function parseEventUserInfo(event) {
 
 	const userInfo = path.get(event, 'requestContext.authorizer.claims');
 

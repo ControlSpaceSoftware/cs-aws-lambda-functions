@@ -4,7 +4,7 @@ import chai from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
-import {parseEvent, parseEventBody, parseEventParams, parseEventUserInfo} from '../src'
+import {parseEvent, parseEventBody, parseEventParams, parseEventUserInfo} from '../src/index'
 import getEvent from './event-get-authorized-ok.json'
 
 chai.should();

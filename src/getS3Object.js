@@ -1,4 +1,4 @@
-export default function getS3Object({provider, bucket, key}) {
+export function getS3Object({provider, bucket, key}) {
 
 	if (!(provider && typeof provider.getObject === 'function')) {
 		throw new TypeError('provider.getObject(params, function(err, data)) is missing');

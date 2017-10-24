@@ -1,4 +1,4 @@
-export default function apiGatewayProxyHandlerFactory({eventHandler}) {
+export function apiGatewayProxyHandlerFactory({eventHandler}) {
 
 	if (typeof eventHandler !== 'function') {
 		throw new TypeError(`The 'eventHandler' parameter must be a function.`);

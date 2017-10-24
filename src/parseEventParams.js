@@ -1,5 +1,5 @@
 import path from 'ov-object-path'
-export default function parseEvent(event) {
+export function parseEventParams(event) {
 
 	const pathParams = path.get(event, 'pathParameters') || {};
 	const stageParams = path.get(event, 'stageVariables') || {};

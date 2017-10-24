@@ -1,6 +1,6 @@
 import path from 'ov-object-path'
-import parseEventBody from './parseEventBody'
-import parseEventParams from './parseEventParams'
+import {parseEventBody} from './parseEventBody'
+import {parseEventParams} from './parseEventParams'
 
 /**
  * @deprecated use {apiGatewayProxyHandlerFactory.js}
@@ -8,7 +8,7 @@ import parseEventParams from './parseEventParams'
  * @param bodyHandler
  * @returns {function(*=, *=, *)}
  */
-export default function apiGatewayProxyWrapper(bodyHandler) {
+export function apiGatewayProxyWrapper(bodyHandler) {
 
 	return (event, context, callback) => {
 

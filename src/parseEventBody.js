@@ -1,5 +1,5 @@
 import path from 'ov-object-path'
-export default function parseEventBody(event) {
+export function parseEventBody(event) {
 
 	const body = path.get(event, 'body');
 
