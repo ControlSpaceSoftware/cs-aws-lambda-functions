@@ -44,15 +44,16 @@ export function getS3ObjectsAsJson({provider, bucket, keys}) {
 						const json = result.response.object.Body.toString('utf-8');
 						resolve(JSON.parse(json));
 					} catch (ignore) {
+						console.log(ignore);
 					}
 				}
 				resolve({});
 			})
 			.catch((error) => {
+				console.log(error);
 				if (error && error.code === 'NoSuchKey') {
 					resolve({});
 				} else {
-					console.log(error);
 					resolve(JSON.stringify(error));
 				}
 			});
