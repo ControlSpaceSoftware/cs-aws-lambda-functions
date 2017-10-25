@@ -1,18 +1,11 @@
 import {getS3Object} from './getS3Object'
 
-const logError = (error) => {
-	if (error && error.code !== 'NoSuchKey') {
-		console.log(error);
-	}
-	return error;
-};
-
 /**
  * Given array of keys, get the S3 objects and parse as json. Returns
  * list of JSON objects.
  *
- * Ignores getS3Object() errors. Writes errors other than 'NoSuchKey'
- * to console.log. Errors return empty JSON object.
+ * Ignores getS3Object() 'NoSuchKey' errors. Writes errors to resolve list.
+ * Consumers must check each object to see if typeof obj === 'object'.
  *
  * @param provider
  * @param bucket
@@ -56,8 +49,12 @@ export function getS3ObjectsAsJson({provider, bucket, keys}) {
 				resolve({});
 			})
 			.catch((error) => {
-				logError(error);
-				resolve({});
+				if (error && error.code === 'NoSuchKey') {
+					resolve({});
+				} else {
+					console.log(error);
+					resolve(JSON.stringify(error));
+				}
 			});
 	});
 

@@ -59,7 +59,7 @@ describe('getS3ObjectsAsJson', () => {
 			cb({test: 'test event callback error'});
 		};
 		return getS3ObjectsAsJson({provider, bucket, keys}).then((result) => {
-			expect(result).to.eql([{}]);
+			expect(result).to.eql(["{\"test\":\"test event callback error\"}"]);
 		});
 	});
 });
