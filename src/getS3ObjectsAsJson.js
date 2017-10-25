@@ -39,9 +39,15 @@ export function getS3ObjectsAsJson({provider, bucket, keys}) {
 	const load = (key) => new Promise((resolve) => {
 		getS3Object({provider, bucket, key})
 			.then((result) => {
-				if (typeof result === 'object') {
+				if (result && typeof result.response === 'object') {
 					try {
-						const json = result.response.object.Body.toString('utf-8');
+						let json;
+						if (result.hasOwnProperty('Body')) {
+							json = result.response.Body.toString('utf-8');
+						} else {
+							// todo why does this happen?
+							json = result.response.object.Body.toString('utf-8');
+						}
 						resolve(JSON.parse(json));
 					} catch (ignore) {
 						console.log(ignore);
@@ -51,11 +57,11 @@ export function getS3ObjectsAsJson({provider, bucket, keys}) {
 				resolve({});
 			})
 			.catch((error) => {
-				console.log(error);
 				if (error && error.code === 'NoSuchKey') {
 					resolve({});
 				} else {
-					resolve(JSON.stringify(error));
+					console.log(error);
+					resolve({});
 				}
 			});
 	});

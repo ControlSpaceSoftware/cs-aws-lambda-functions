@@ -54,12 +54,12 @@ describe('getS3ObjectsAsJson', () => {
 			expect(result).to.eql([{test: 'test s3 event object body string'}]);
 		});
 	});
-	it('provider.getObject(params, callback) on failure', () => {
+	it('provider.getObject(params, callback) on failure ignores errors', () => {
 		provider.getObject = (params, cb) => {
 			cb({test: 'test event callback error'});
 		};
 		return getS3ObjectsAsJson({provider, bucket, keys}).then((result) => {
-			expect(result).to.eql(["{\"test\":\"test event callback error\"}"]);
+			expect(result).to.eql([{}]);
 		});
 	});
 });
