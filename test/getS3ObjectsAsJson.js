@@ -15,11 +15,9 @@ describe('getS3ObjectsAsJson', () => {
 	let provider, bucket, keys, s3event;
 	beforeEach(() => {
 		s3event = {
-			object: {
-				Body: {
-					toString() {
-						return JSON.stringify({test: 'test s3 event object body string'});
-					}
+			Body: {
+				toString() {
+					return JSON.stringify({test: 'test s3 event object body string'});
 				}
 			}
 		};

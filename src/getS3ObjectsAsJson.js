@@ -41,13 +41,7 @@ export function getS3ObjectsAsJson({provider, bucket, keys}) {
 			.then((result) => {
 				if (result && typeof result.response === 'object') {
 					try {
-						let json;
-						if (result.hasOwnProperty('Body')) {
-							json = result.response.Body.toString('utf-8');
-						} else {
-							// todo why does this happen?
-							json = result.response.object.Body.toString('utf-8');
-						}
+						const json = result.response.Body.toString('utf-8');
 						resolve(JSON.parse(json));
 					} catch (ignore) {
 						console.log(ignore);
