@@ -45,6 +45,7 @@ export function getS3ObjectsAsJson({provider, bucket, keys}) {
 						resolve(JSON.parse(json));
 					} catch (ignore) {
 						console.log(ignore);
+						console.log(JSON.stringify(result));
 					}
 				}
 				resolve({});
