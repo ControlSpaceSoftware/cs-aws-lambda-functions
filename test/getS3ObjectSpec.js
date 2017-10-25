@@ -43,7 +43,7 @@ describe('getS3Object', () => {
 			cb(null, {test: 'test event callback'});
 		};
 		return getS3Object({provider, bucket, key}).then((result) => {
-			expect(result).to.eql({bucket, key, object: {test: 'test event callback'}});
+			expect(result).to.eql({bucket, key, response: {test: 'test event callback'}});
 		});
 	});
 	it('provider.getObject(params, callback) on failure', () => {

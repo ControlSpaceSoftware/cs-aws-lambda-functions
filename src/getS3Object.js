@@ -17,7 +17,7 @@ export function getS3Object({provider, bucket, key}) {
 			Bucket: bucket,
 			Key: key
 		};
-		provider.getObject(getParams, (error, object) => error ? reject(error) : resolve({bucket, key, object}));
+		provider.getObject(getParams, (error, response) => error ? reject(error) : resolve({bucket, key, response}));
 	});
 
 }
