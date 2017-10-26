@@ -4,8 +4,7 @@ import {getS3Object} from './getS3Object'
  * Given array of keys, get the S3 objects and parse as json. Returns
  * list of JSON objects.
  *
- * Ignores getS3Object() 'NoSuchKey' errors. Writes errors to resolve list.
- * Consumers must check each object to see if typeof obj === 'object'.
+ * Ignores getS3Object() errors. Writes errors to console.log.
  *
  * @param provider
  * @param bucket
